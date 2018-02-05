@@ -26,7 +26,10 @@ token := jwt.Generate(claims)
 ### Decode
 
 ```go
-payload := jwt.Decode(token)
+payload, err := jwt.Decode(token)
+if err != nil{
+	panic(err)
+}
 fmt.Println(payload["user"])
 
 ```
